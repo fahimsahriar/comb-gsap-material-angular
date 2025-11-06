@@ -8,20 +8,20 @@
 @use './theme-colors' as custom-theme-colors;
 
 html {
-  @include mat.theme((
-    color: mat.$rose-palette,
-    typography: Roboto,
-    density: 0
-  ));
+  // @include mat.theme((
+  //   color: mat.$rose-palette,
+  //   typography: Roboto,
+  //   density: 0
+  // ));
 
   //this is where I set the custom theme for the application
-  // @include mat.theme((
-  //   color: (
-  //     primary: custom-theme-colors.$primary-palette,
-  //     secondary: custom-theme-colors.$tertiary-palette,
-  //     theme-type: light,
-  //   ),
-  // ));
+  @include mat.theme((
+    color: (
+      primary: custom-theme-colors.$primary-palette,
+      secondary: custom-theme-colors.$tertiary-palette,
+      theme-type: light,
+    ),
+  ));
 }
 
 body {
