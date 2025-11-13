@@ -19,7 +19,7 @@ export class ContactUsFormComponent {
       priority: ['medium'],
       subscribe: [false],
       contactDate: [null]
-    });
+    }); 
   }
 
   onSubmit() {

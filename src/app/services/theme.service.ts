@@ -16,7 +16,7 @@ export class ThemeService {
   constructor() {
 
     const saved = localStorage.getItem(STORAGE_KEY) as 'green' | 'red' | 'blue'
-    if (saved) {
+    if (saved) { 
       this.color.set(saved);
     }
 

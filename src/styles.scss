@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use '_theme-colors' as themeColors;
+
+html {
+    color-scheme: light;
+    @include mat.theme((color: themeColors.$primary-palette));
+
+    @media (prefers-contrast: more) {
+        @include themeColors.high-contrast-overrides(color-scheme);
+    }
+
+    @include mat.theme-overrides((corner-full:5px));
+}
+
+.tertiary {
+    @include mat.theme((color: themeColors.$tertiary-palette));
+    @include mat.theme-overrides((corner-full:5px));
+}
+
+.error {
+    @include mat.theme((color: themeColors.$error-palette));
+    @include mat.theme-overrides((corner-full:5px));
+}
+
+.secondary {
+    @include mat.theme((color: themeColors.$secondary-palette)); 
+    @include mat.theme-overrides((corner-full:5px));
+}
+
+.heading {
+    color: var(--mat-sys-error);
+}
+
+.cyan {
+  @include mat.theme((
+    color: mat.$cyan-palette,
+  ));
+}
+.red {
+  @include mat.theme((
+    color: mat.$red-palette,
+  ));
+}
+.green {
+  @include mat.theme((
+    color: mat.$green-palette,
+  ));
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
