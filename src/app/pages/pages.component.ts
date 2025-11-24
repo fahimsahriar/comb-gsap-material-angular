@@ -5,19 +5,26 @@ import { filter } from 'rxjs';
 import { ThemeService } from '../services/theme.service';
 import { FormsModule } from '@angular/forms';
 import { LoaderService } from '../services/loader.service';
+import {MatRadioModule} from '@angular/material/radio';
 
 @Component({
   selector: 'app-pages',
-  imports: [RouterOutlet, FormsModule],
+  imports: [RouterOutlet, FormsModule, MatRadioModule],
   templateUrl: './pages.component.html',
   styleUrl: './pages.component.scss'
 })
 export class PagesComponent {
   breadcrumb = 'Dashboard'; // default fallback
+  selectedColor : 'red' | 'blue' | 'green' = 'green';
 
 
-  constructor(private router: Router, private route: ActivatedRoute,
-    private title: Title, public themeService: ThemeService, public loaderService: LoaderService) {
+  constructor(
+    private router: Router, 
+    private route: ActivatedRoute,
+    private title: Title, 
+    public themeService: ThemeService, 
+    public loaderService: LoaderService
+  ) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -27,6 +34,7 @@ export class PagesComponent {
           this.title.setTitle(this.breadcrumb);
         });
       });
+    this.selectedColor = this.themeService.color();
   }
 
   getChild(route: ActivatedRoute): ActivatedRoute {

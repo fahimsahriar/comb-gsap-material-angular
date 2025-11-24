@@ -1,22 +1,24 @@
 <h2 class="heading">Welcome!</h2>
 <p>This is a basic admin layout using Angular Material 19.</p>
-<button matButton="filled" class="">Primary</button>
-<button matButton="filled" class="tertiary">Tertiary</button>
+<div>
+  <button matButton="filled" class="">Primary</button>
+  <button matButton="filled" class="tertiary">Tertiary</button>
+</div>
 
 @if (joke) {
-  <mat-card class="example-card" appearance="outlined">
-    <mat-card-header>
-      <mat-card-title>{{ joke.id }}</mat-card-title>
-      <mat-card-subtitle>{{ joke.setup }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-        {{ joke.punchline }}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button matButton>LIKE</button>
-      <button matButton>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>{{ joke.id }}</mat-card-title>
+    <mat-card-subtitle>{{ joke.setup }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ joke.punchline }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button matButton>LIKE</button>
+    <button matButton>SHARE</button>
+  </mat-card-actions>
+</mat-card>
 }

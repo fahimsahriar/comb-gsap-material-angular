@@ -32,6 +32,7 @@ html {
     color: var(--mat-sys-error);
 }
 
+//multiple theme class
 .cyan {
   @include mat.theme((
     color: mat.$cyan-palette,
@@ -47,6 +48,7 @@ html {
     color: mat.$green-palette,
   ));
 }
+//multiple theme class ends
 
 html,
 body {
