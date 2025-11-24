@@ -10,8 +10,8 @@ export class ThemeService {
   public mode = signal<'light' | 'dark'>('light');
   public color = signal<'green' | 'red' | 'blue'>('green');
 
-  //public currentTheme = computed(() => `${this.mode()}-${this.color()}`)
-  public currentTheme = computed(() => this.color());
+  public currentTheme = computed(() => `${this.mode()}-${this.color()}`)
+  // public currentTheme = computed(() => this.color());
 
   constructor() {
 

@@ -7,4 +7,12 @@
     <mat-radio-button value="green">Green</mat-radio-button>
   </mat-radio-group>
 </div>
+
+<div>
+  <h4>Select a mode:</h4>
+  <mat-radio-group [ngModel]="selectedMode" aria-label="Select an option" (change)="themeService.setMode($event.value)">
+    <mat-radio-button value="light">Light mode</mat-radio-button>
+    <mat-radio-button value="dark">Dark mode</mat-radio-button>
+  </mat-radio-group>
+</div>
 <router-outlet></router-outlet>

@@ -3,7 +3,6 @@
 @use '_theme-colors' as themeColors;
 
 html {
-    color-scheme: light;
     @include mat.theme((color: themeColors.$primary-palette));
 
     @media (prefers-contrast: more) {
@@ -33,17 +32,39 @@ html {
 }
 
 //multiple theme class
-.cyan {
+.light-blue {
+  color-scheme: light;
   @include mat.theme((
     color: mat.$cyan-palette,
   ));
 }
-.red {
+.light-red {
+  color-scheme: light;
   @include mat.theme((
     color: mat.$red-palette,
   ));
 }
-.green {
+.light-green {
+  color-scheme: light;
+  @include mat.theme((
+    color: mat.$green-palette,
+  ));
+}
+
+.dark-blue {
+  color-scheme: dark;
+  @include mat.theme((
+    color: mat.$cyan-palette,
+  ));
+}
+.dark-red {
+  color-scheme: dark;
+  @include mat.theme((
+    color: mat.$red-palette,
+  ));
+}
+.dark-green {
+  color-scheme: dark;
   @include mat.theme((
     color: mat.$green-palette,
   ));
