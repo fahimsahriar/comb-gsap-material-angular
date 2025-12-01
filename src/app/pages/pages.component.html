@@ -1,18 +1,47 @@
-<span class="toolbar-title">{{ breadcrumb }}</span>
-<div>
-  <h4>Select a theme:</h4>
-  <mat-radio-group [ngModel]="selectedColor" aria-label="Select an option" (change)="themeService.setColor($event.value)">
-    <mat-radio-button value="red">Red</mat-radio-button>
-    <mat-radio-button value="blue">Blue</mat-radio-button>
-    <mat-radio-button value="green">Green</mat-radio-button>
-  </mat-radio-group>
-</div>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #mainnav opened>
+    <ul>
+      <li>
+        <a routerLink="">Dashboard</a>
+      </li>
+      <li>
+        <a routerLink="/contact">Contact Us</a>
+      </li>
+      <li>
+        <a routerLink="/user">User Profile Manager</a>
+      </li>
+      <li>
+        <a routerLink="/data">Data Display</a>
+      </li>
+      <li>
+        <a routerLink="/kanban">Kanban Board Mini</a>
+      </li>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav #setting position="end">
+    <div>
+      <h4>Select a theme:</h4>
+      <mat-radio-group [ngModel]="selectedColor" aria-label="Select an option"
+        (change)="themeService.setColor($event.value)">
+        <mat-radio-button value="red">Red</mat-radio-button>
+        <mat-radio-button value="blue">Blue</mat-radio-button>
+        <mat-radio-button value="green">Green</mat-radio-button>
+      </mat-radio-group>
+    </div>
 
-<div>
-  <h4>Select a mode:</h4>
-  <mat-radio-group [ngModel]="selectedMode" aria-label="Select an option" (change)="themeService.setMode($event.value)">
-    <mat-radio-button value="light">Light mode</mat-radio-button>
-    <mat-radio-button value="dark">Dark mode</mat-radio-button>
-  </mat-radio-group>
-</div>
-<router-outlet></router-outlet>
+    <div>
+      <h4>Select a mode:</h4>
+      <mat-radio-group [ngModel]="selectedMode" aria-label="Select an option"
+        (change)="themeService.setMode($event.value)">
+        <mat-radio-button value="light">Light mode</mat-radio-button>
+        <mat-radio-button value="dark">Dark mode</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </mat-sidenav>
+  <section>
+    <span class="toolbar-title"> Fahim {{ breadcrumb }}</span>
+    <button (click)="mainnav.toggle()">Toggle Main Nav</button>
+    <button (click)="setting.toggle()">Toggle Setting</button>
+    <router-outlet></router-outlet>
+  </section>
+</mat-sidenav-container>
