@@ -7,10 +7,18 @@ import { FormsModule } from '@angular/forms';
 import { LoaderService } from '../services/loader.service';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-pages',
-  imports: [RouterOutlet,RouterLink, FormsModule, MatRadioModule, MatSidenavModule],
+  imports: [
+    RouterOutlet,
+    RouterLink, 
+    FormsModule, 
+    MatRadioModule,
+    MatSidenavModule,
+    MatToolbarModule
+  ],
   templateUrl: './pages.component.html',
   styleUrl: './pages.component.scss'
 })
