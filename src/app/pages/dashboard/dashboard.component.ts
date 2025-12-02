@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   constructor(private httpService: HttpService) {
   }
   ngAfterViewInit(): void {
-    this.initAnimations();
+    // this.initAnimations();
   }
 
   ngOnInit() {
@@ -53,48 +53,23 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   initAnimations() {
-    // gsap.to(this.animatedElement.nativeElement, {
-    //   x: 400,
-    //   duration: 2,
-    //   rotation: 360,
-    //   // ease: "power2.inOut" // Quadratic
-    //   ease: "bounce.out" // Bounce effect
-    // });
-
-    // // Element starts at x:100 and moves to its current position
-    // gsap.from(this.animatedElement.nativeElement, {
-    //   duration: 5,
-    //   x: 400,
-    //   ease: "power1.inOut" // Linear
-    // });
-
-    // // Element starts at x:0 and moves to x:200
-    // gsap.fromTo(this.animatedElement.nativeElement,
-    //   { x: 0, opacity: 0 }, // from values
-    //   { x: 200, opacity: 1, duration: 1 } // to values
-    // );
-
-    // // Immediately set element position
-    // gsap.set(this.animatedElement.nativeElement, { x: 100, opacity: 0.5 });
+    const el = this.container.nativeElement;
 
     const tl = gsap.timeline({
-      defaults: { duration:5 }
+      defaults: { duration: 5 }
     });
 
-    tl.from(".box1", { x: -100, opacity: 0 })
-      .from(".box2", { y: 100, opacity: 0 }, "-=0.3") // Start 0.3s before previous ends
-      .from(".box3", { x: 100, opacity: 0 }, "+=0.2") // Start 0.2s after previous ends
-      .to(".box1", { rotation: 360 })
-      .to(".box2", { scale: 1.2 }, "<") // Start at same time as previous
-      .to(".box3", { backgroundColor: "#ff6b6b" }, "<0.1"); // Start 0.1s after previous starts
+    tl.from(el.querySelector(".box1"), { x: -100, opacity: 0 })
+      .from(el.querySelector(".box2"), { y: 100, opacity: 0 }, "-=0.3")
+      .from(el.querySelector(".box3"), { x: 100, opacity: 0 }, "+=0.2")
+      .to(el.querySelector(".box1"), { rotation: 360 })
+      .to(el.querySelector(".box2"), { scale: 1.2 }, "<")
+      .to(el.querySelector(".box3"), { backgroundColor: "#ff6b6b" }, "<0.1");
 
-    // Add labels for better control
     tl.addLabel("spin")
-      .to(".box1", { rotation: 180 })
-      .add("colorChange", "+=0.5") // Add label 0.5s after previous
-      .to(".box2", { backgroundColor: "#4ecdc4" }, "colorChange")
-      .to(".box3", { backgroundColor: "#45b7d1" }, "colorChange");
-
-    return tl;
+      .to(el.querySelector(".box1"), { rotation: 180 })
+      .add("colorChange", "+=0.5")
+      .to(el.querySelector(".box2"), { backgroundColor: "#4ecdc4" }, "colorChange")
+      .to(el.querySelector(".box3"), { backgroundColor: "#45b7d1" }, "colorChange");
   }
 }
